@@ -26,16 +26,22 @@ Page({
   search: function (e) {
     var that = this
     var content = this.data.searchWord
+    var md5 = require('./md5')
+    var appid = '20210312000724963';
+    var key = '_6q5zPN8lmZfq0A2uCzA';
+    var salt = 1435660288;
+    var str1 = appid + content + salt +key;
+    var sign = md5.hexMD5(str1)
     wx.request({
 
-      url: 'https://api.shanbay.com/bdc/search/?word=' + content,
+      url: 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + content+'&from=en&to=zh&appid='+appid+'&salt=1435660288&sign='+sign,
       data: {},
       method: 'GET',
       success: function (res) {
         console.log(res)
 
-        var msg = res.data.msg
-        if (msg == "SUCCESS") {
+        var msg = res.errMsg
+        if (msg == "request:ok") {
           wx.navigateTo({
             url: './detail/detail?content=' + content,
             success: function (res) {

@@ -1,3 +1,5 @@
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
 .container {
   display: flex;
   flex-direction: column;
@@ -17,7 +19,7 @@
   margin-top: 58rpx;
   font-family: Songti SC;
   font-size: 32rpx;
-  color: #585858;
+  color: black;
 }
 
 .input-container {
@@ -34,25 +36,12 @@
   margin: auto;
 }
 
-.button-info {
-    margin: 10rpx;
-  display: flex;
-  flex-direction: column;
-  width: 360rpx;
-  height: 70rpx;
-  border: 2rpx solid #353535;
-  border-radius: 10rpx;
-  align-items: center;
-}
-
 .button-search {
   margin: 50rpx;
   display: flex;
   flex-direction: column;
   width: 360rpx;
   height: 70rpx;
-  border: 2rpx solid #353535;
-  border-radius: 10rpx;
   align-items: center;
 }
 
@@ -60,5 +49,5 @@
   margin: auto;
   font-family: Songti TC;
   font-size: 32rpx;
-  color: #585858;
+  color: black;
 }
