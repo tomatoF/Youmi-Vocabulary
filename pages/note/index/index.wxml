@@ -16,7 +16,6 @@
             </view>
         </block>
     </view>
-
     <!--笔记列表-->
     <block wx:for="{{items}}" wx:key="{{key}}">
         <view class="col" wx:if="{{ item.state != 3 }}">
