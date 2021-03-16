@@ -1,8 +1,10 @@
 // pages/settings/detail/detail.js
+var word = "we"
 Page({
   data:{},
+  
   onLoad:function(option){
-    var word = option.content
+    this.word = option.content
     var md5 = require('../md5')
     var appid = '20210312000724963';
     var key = '_6q5zPN8lmZfq0A2uCzA';
@@ -12,7 +14,7 @@ Page({
 
     var that = this;
         wx.request({
-            url: 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + word+'&from=en&to=zh&appid='+appid+'&salt=1435660288&sign='+sign,
+            url: 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + this.word +'&from=en&to=zh&appid='+appid+'&salt=1435660288&sign='+sign,
             data: {},
             method: 'GET',
             success: function (res) {
@@ -28,7 +30,19 @@ Page({
             },
             complete: function () {
             }
-        })
+  })},
+  read: function (e) {
+    const innerAudioContext = wx.createInnerAudioContext()
+    innerAudioContext.autoplay = true
+    innerAudioContext.src = 'http://dict.youdao.com/dictvoice?type=0&audio=' + this.word
+    innerAudioContext.onPlay(() => {
+      console.log('开始播放')
+    })
+    innerAudioContext.onError((res) => {
+      console.log(res.errMsg)
+      console.log(res.errCode)
+    })
+
   },
   onReady:function(){
     // 页面渲染完成

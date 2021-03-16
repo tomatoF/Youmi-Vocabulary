@@ -53,5 +53,8 @@
     "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
+  "usingComponents": {
+    "van-button": "../../miniprogram_npm/vant-weapp/button/index"
+  },
   "sitemapLocation": "sitemap86.json"
 }

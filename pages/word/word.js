@@ -1,4 +1,5 @@
 var list = require('../../data/word-list.js')
+var content = "we"
 
 Page({
     data: {
@@ -6,7 +7,8 @@ Page({
     onLoad: function (options) {
 
         var idx = Math.floor(Math.random() * 499) + 1
-        var word = list.wordList[idx]    
+        var word = list.wordList[idx]
+        this.content = word.content    
     
         this.setData({
             content: word.content,
@@ -36,19 +38,17 @@ Page({
             audio: word.audio
         })
     },
-    read: function () {
-        console.log(this.data.audio)
-        wx.playVoice({
-            filePath: this.data.audio,
-            success: function (res) {
-                console.log('ok')
-            },
-            fail: function () {
-                // fail
-            },
-            complete: function () {
-                // complete
-            }
+    read: function (e) {
+        const innerAudioContext = wx.createInnerAudioContext()
+        innerAudioContext.autoplay = true
+        innerAudioContext.src = 'http://dict.youdao.com/dictvoice?type=0&audio=' + this.content
+        innerAudioContext.onPlay(() => {
+          console.log('开始播放')
         })
+        innerAudioContext.onError((res) => {
+          console.log(res.errMsg)
+          console.log(res.errCode)
+        })
+    
     }
 })

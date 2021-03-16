@@ -1,4 +1,5 @@
-
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
 .container {
   display: flex;
   flex-direction: column;
@@ -29,6 +30,10 @@
   font-family: Chalkboard;
   font-size: 36rpx;
   color: #8F8F8F;
+}
+.word-audio {
+  margin-left: 9rpx;
+  margin-bottom: 9rpx;
 }
 
 .word-definition {
