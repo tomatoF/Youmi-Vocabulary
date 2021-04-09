@@ -1,7 +1,7 @@
 {
-  "name": "hotapp-notepad",
+  "name": "WeUp",
   "version": "1.0.0",
-  "description": "hotapp-notepad wechat liteapp",
+  "description": "WeUp wechat liteapp",
   "main": "app.js",
   "directories": {
     "test": "tests"

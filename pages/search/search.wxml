@@ -1,6 +1,7 @@
 <view class="container">
   <image class="logo" src="/images/search-logo.png"></image>
   <view class="input-container">
+    <text class="cuIcon-search lg text-gray search-ic"></text>
     <input class="input-search" bindconfirm="search" placeholder="请输入您要查询的单词" bindinput='word'/>
   </view>
   <view class="button-search cu-btn bg-red round" bindtap="search">

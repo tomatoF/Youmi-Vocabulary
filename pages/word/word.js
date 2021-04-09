@@ -29,7 +29,8 @@ Page({
             showNot: false
         })
         var idx = Math.floor(Math.random() * 499) + 1
-        var word = list.wordList[idx]    
+        var word = list.wordList[idx]
+        this.content = word.content   
     
         this.setData({
             content: word.content,

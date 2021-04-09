@@ -7,16 +7,14 @@
     "pages/settings/clause/clause",
     "pages/settings/help/help",
     "pages/settings/feedback/feedback",
-    "pages/note/index/index",
-    "pages/note/create/index",
-    "pages/note/edit/index",
+    "pages/note/index",
     "pages/intro/intro",
     "pages/intro/trick/trick",
     "pages/intro/recommend/recommend",
     "pages/intro/saying/saying"
   ],
   "tabBar": {
-    "backgroundColor": "#F7F7FA",
+    "backgroundColor": "#FFFFFF",
     "borderStyle": "white",
     "list": [
       {
@@ -32,7 +30,7 @@
         "selectedIconPath": "images/search-selected.png"
       },
       {
-        "pagePath": "pages/note/index/index",
+        "pagePath": "pages/note/index",
         "text": "生词本",
         "iconPath": "images/note.png",
         "selectedIconPath": "images/note-selected.png"
@@ -47,7 +45,7 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "backgroundColor": "#fadbd9",
+    "backgroundColor": "#F7F7FA",
     "navigationBarBackgroundColor": "#e54d42",
     "navigationBarTitleText": "WeUp",
     "navigationBarTextStyle": "white",
