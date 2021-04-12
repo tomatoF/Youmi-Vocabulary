@@ -31,10 +31,7 @@
   font-size: 36rpx;
   color: #8F8F8F;
 }
-.word-audio {
-  margin-left: 9rpx;
-  margin-bottom: 9rpx;
-}
+
 
 .word-definition {
   margin-top: 194rpx;

@@ -32,6 +32,8 @@ Page({
     var salt = 1435660288;
     var str1 = appid + content + salt +key;
     var sign = md5.hexMD5(str1)
+    var url = 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + content+'&from=en&to=zh&appid='+appid+'&salt=1435660288&sign='+sign
+    console.log(url)
     wx.request({
 
       url: 'http://api.fanyi.baidu.com/api/trans/vip/translate?q=' + content+'&from=en&to=zh&appid='+appid+'&salt=1435660288&sign='+sign,
@@ -43,7 +45,7 @@ Page({
         var msg = res.errMsg
         if (msg == "request:ok") {
           wx.navigateTo({
-            url: './detail/detail?content=' + content,
+            url: './detail/detail?src=' + res.data.trans_result[0].src+'&dst='+res.data.trans_result[0].dst,
             success: function (res) {
               // success
             },
