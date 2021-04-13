@@ -9,7 +9,7 @@ Page({
     that.setData({
       content: option.src,
       audio: "aaa",
-      pron: "bbb",
+      pron: "kɒnfɪdəns",
       definition: option.dst
   })},
   read: function (e) {

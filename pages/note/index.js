@@ -50,4 +50,13 @@ Page({
       ListTouchDirection: null
     })
   },
+  // 生词移出函数
+  remove:function(e){
+    var index = e.currentTarget.dataset.index;
+    this.data.array.splice(index,1)
+    this.setData({
+      array:this.data.array
+    })
+    console.log(this.data.array)
+  }
 })

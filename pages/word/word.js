@@ -1,13 +1,17 @@
+const wordList = require('../../data/word-list.js')
 var list = require('../../data/word-list.js')
 var content = "we"
 
 Page({
     data: {
+        // 需要查询是否为生词
+        favored:false
     },
     onLoad: function (options) {
 
-        var idx = Math.floor(Math.random() * 499) + 1
+        var idx = Math.floor(Math.random() * 1000) + 1
         var word = list.wordList[idx]
+        console.log(list.wordList.length)
         this.content = word.content    
     
         this.setData({
@@ -28,7 +32,7 @@ Page({
         this.setData({
             showNot: false
         })
-        var idx = Math.floor(Math.random() * 499) + 1
+        var idx = Math.floor(Math.random() * 1000) + 1
         var word = list.wordList[idx]
         this.content = word.content   
     
@@ -51,5 +55,12 @@ Page({
           console.log(res.errCode)
         })
     
+    },
+    // 添加生词本函数
+    favor:function(e){
+        this.favored = !this.favored
+        this.setData({
+            favored:this.favored
+        })
     }
 })

@@ -1,8 +1,9 @@
 <view class="container">
     <text class="word-content">{{content}}</text>
     <view class="pron-container">
+      <text class="{{favored?'cuIcon-favorfill':'cuIcon-favor'}} lg text-gray favor-icon" bindtap="favor"/>
       <image class="pron-icon" src="/images/pron-icon.png"></image>
-      <text class="word-pron" bindtap="read">/{{pron}}/</text>
+      <text class="word-pron " bindtap="read">/{{pron}}/</text>
     </view>
     <text wx:if="{{showNot}}" class="word-definition">{{definition}}</text>
     <view class="cu-btn bg-red round lg button-miss" catchtap="show">
