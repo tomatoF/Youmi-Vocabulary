@@ -1,6 +1,9 @@
 const wordList = require('../../data/word-list.js')
 var list = require('../../data/word-list.js')
-var content = "we"
+var content = ""
+var i=0
+var batch = []
+
 
 Page({
     data: {
@@ -8,18 +11,24 @@ Page({
         favored:false
     },
     onLoad: function (options) {
-
-        var idx = Math.floor(Math.random() * 1000) + 1
-        var word = list.wordList[idx]
-        console.log(list.wordList.length)
-        this.content = word.content    
-    
-        this.setData({
-            content: word.content,
-            pron: word.pron,
-            definition: word.definition,
-            audio: word.audio
+        wx.request({
+          url: 'http://localhost:8080/word/next',
+          data: {
+            userId:1
+          },
+          method: 'GET',
+          success: (res) => {
+            batch=res.data
+            this.content = batch[i].word
+            this.setData({
+                content: batch[i++].word,
+                pron: batch[i++].america_pronunciation,
+                definition: batch[i++].meaning,
+            })
+          }
         })
+
+        
 
     },
     show: function () {
@@ -32,15 +41,11 @@ Page({
         this.setData({
             showNot: false
         })
-        var idx = Math.floor(Math.random() * 1000) + 1
-        var word = list.wordList[idx]
-        this.content = word.content   
-    
+        this.content = batch[i].word
         this.setData({
-            content: word.content,
-            pron: word.pron,
-            definition: word.definition,
-            audio: word.audio
+            content: batch[i++].word,
+            pron: batch[i++].america_pronunciation,
+            definition: batch[i++].meaning,
         })
     },
     read: function (e) {
