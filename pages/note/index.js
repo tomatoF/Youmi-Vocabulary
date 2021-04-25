@@ -1,25 +1,11 @@
 const app = getApp();
 Page({
   data: {
-    array: [{
-      word: 'master',
-      desc:'n. 主人；硕士；专家 vt. 控制；精通 adj. 主要的；主人的；精通的'
-    }, {
-      word: 'confidence',
-      desc:'n. 信任；把握；信心；知心话 adj. 骗得信任的'
-    }, {
-      word: 'belief',
-      desc:'n. 信念；信仰；相信'
-    }, {
-      word: 'compile',
-      desc:'vt. 编译；编制；编纂'
-    }, {
-      word: 'theory',
-      desc:'n. 学说；理论；原理；意见'
-    }, {
-      word: 'courage',
-      desc:'n. 勇气；胆量'
-    }]
+    userId:'occfm1XR2rLSUu7nZKvyDnpVVk_s',
+    array:[]
+  },
+  onLoad: function (options) {
+    this.load()
   },
   // ListTouch触摸开始
   ListTouchStart(e) {
@@ -52,11 +38,36 @@ Page({
   },
   // 生词移出函数
   remove:function(e){
-    var index = e.currentTarget.dataset.index;
-    this.data.array.splice(index,1)
-    this.setData({
-      array:this.data.array
+    var index = parseInt(e.target.dataset.index)
+    wx.request({
+      url: 'http://localhost:8080/word/removeNote',
+      data:{
+        userId:this.data.userId,
+        wordId:parseInt(this.data.array[index].id)
+      },
+      success:(res)=>{
+        console.log(res)
+      }
     })
-    console.log(this.data.array)
+    // this.data.array.splice(index,1)
+    this.load()
+    // this.setData({
+    //   array:this.data.array
+    // })
+    
+    
+  },
+  load:function(){
+    wx.request({
+      url: 'http://localhost:8080/word/notewords',
+      data:{
+        userId:this.userId
+      },
+      success:(res)=>{
+        this.setData({
+          array:res.data
+        })
+      }
+    })
   }
 })

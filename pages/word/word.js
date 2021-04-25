@@ -8,21 +8,23 @@ var batch = []
 Page({
     data: {
         // 需要查询是否为生词
-        favored:false
+        userId:'occfm1XR2rLSUu7nZKvyDnpVVk_s'
     },
     onLoad: function (options) {
         wx.request({
           url: 'http://localhost:8080/word/next',
           data: {
-            userId:1
+            userId:1,
+            worId:1
           },
           method: 'GET',
           success: (res) => {
             batch=res.data
             this.content = batch[i].word
+            this.worId=batch[i].id
             this.setData({
-                content: batch[i++].word,
-                pron: batch[i++].america_pronunciation,
+                content: batch[i].word,
+                pron: batch[i].america_pronunciation,
                 definition: batch[i++].meaning,
             })
           }
@@ -46,6 +48,7 @@ Page({
             content: batch[i++].word,
             pron: batch[i++].america_pronunciation,
             definition: batch[i++].meaning,
+            favored:false
         })
     },
     read: function (e) {
@@ -63,9 +66,22 @@ Page({
     },
     // 添加生词本函数
     favor:function(e){
-        this.favored = !this.favored
-        this.setData({
-            favored:this.favored
-        })
+        
+        if(!this.favored){
+            wx.request({
+                url: 'http://localhost:8080/word/addNote',
+                data:{
+                    userId:this.data.userId,
+                    wordId:this.worId
+                },
+                success :(res)=>{
+                    this.setData({
+                        favored:!this.favored
+                    })
+                    console.log("succ")
+                }
+              })
+        }
+        
     }
 })
