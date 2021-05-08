@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="text-container">
+    <text class="text-xl">今日计划已完成</text>
+  </view>
+  <view class="plan-detail">
+      <view class="num-container">
+        <text class="text-xxl">15</text>
+        <text class="text-xs">学习单词</text>
+      </view>
+      <view class="day-container">
+        <text class="text-xxl">1</text>
+        <text class="text-xs">坚持天数</text>
+      </view>
+    </view>
+    <calendar config="{{calendarConfig}}"/>
+  <view class="button-container">
+    <view class="cu-btn bg-red round xl button-next" catchtap="finish">
+      <text class="word-next">完成打卡</text>
+    </view>
+  </view>
+</view>

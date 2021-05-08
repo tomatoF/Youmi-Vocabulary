@@ -8,7 +8,7 @@
     <view class="cu-list menu-avatar">
       <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{array}}" wx:key="item" 
         bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd"
-        data-target="move-box-{{index}}" >
+        data-target="move-box-{{index}}" wx:if="{{!item.isDelete}}">
         <view class="content"  >
           <view class="text-grey">{{item.word}}</view>
           <view class="text-gray text-sm">
@@ -18,10 +18,10 @@
             {{item.meaning}}
           </view>
         </view>
-        <!-- <view class="action">
+        <view class="action">
           <view class="text-grey text-xs">22:20</view>
           <view class="cu-tag round bg-grey sm">5</view>
-        </view> -->
+        </view>
         <view class="move">
           <view class="bg-grey" bindtap="top">置顶</view>
           <view class="bg-red" bindtap="remove" data-index="{{index}}">移出</view>

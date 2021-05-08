@@ -1,23 +1,33 @@
-<view class="container">
-  <view bindtap="bindViewTap" class="userinfo">
-    <text class="userinfo-nickname">{{userInfo.nickName}},这些知识可能对你有帮助哦</text>
+<view class="bg-white solid-bottom study-container">
+  <view class="cu-card case">
+    <view class="cu-item shadow">
+      <view class="image">
+        <image class="bg" src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix">
+        </image>
+        <view class="cu-tag bg-blue">四级</view>
+        <view class="cu-bar progress-container">
+          <text class='text-white progress-text text-xs'>已学9个,共980个</text>
+          <view class="cu-progress round sm">
+            <view class="bg-red" style="width:{{loading?'61.8%':''}};">61.8%</view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="list-container">
-  <!--<view class="list-item" bindtap="showMyWord">
-    <text class="list-name">我的单词</text>
-    <image class="list-icon" src="/images/chevron.png"></image>
-  </view>-->
-  <view class="list-item" bindtap="showClause">
-    <text class="list-name">学习方法</text>
-    <image class="list-icon" src="/images/chevron.png"></image>
+  <view class="study-analysis">
+    <view class="today">
+      <view class="today-num">
+        <text class="bg-whilte text-xxl">5</text><text class="text-xs">个</text>
+      </view>
+      <text class="bg-whilte text-xs">今日单词</text>
+    </view>
+    <view class="total">
+      <view class="total-num">
+        <text class="bg-whilte text-xxl">2</text><text class="text-xs">天</text>
+      </view>
+      <text class="bg-whilte text-xs">累计学习</text>
+    </view>
   </view>
-  <view class="list-item" bindtap="showHelp">
-    <text class="list-name">图书推荐</text>
-    <image class="list-icon" src="/images/chevron.png"></image>
-  </view>
-  <view class="list-item" bindtap="showSaying">
-    <text class="list-name">素材宝库</text>
-    <image class="list-icon" src="/images/chevron.png"></image>
-  </view>
-  </view>
+    <button class="cu-btn bg-red round margin-tb-sm lg" bindtap="study">开始学习</button>
+
 </view>

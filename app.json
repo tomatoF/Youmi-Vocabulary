@@ -1,24 +1,22 @@
 {
   "pages": [
+    "pages/intro/intro",
     "pages/word/word",
+    "pages/finish/award",
     "pages/search/search",
     "pages/settings/settings",
     "pages/search/detail/detail",
     "pages/settings/clause/clause",
     "pages/settings/help/help",
     "pages/settings/feedback/feedback",
-    "pages/note/index",
-    "pages/intro/intro",
-    "pages/intro/trick/trick",
-    "pages/intro/recommend/recommend",
-    "pages/intro/saying/saying"
+    "pages/note/index"
   ],
   "tabBar": {
     "backgroundColor": "#FFFFFF",
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/word/word",
+        "pagePath": "pages/intro/intro",
         "text": "背词",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/home-selected.png"

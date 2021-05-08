@@ -1,81 +1,42 @@
-var app = getApp()
-
+const app = getApp();
 Page({
   data: {
-    userInfo: {}
+    ColorList: app.globalData.ColorList,
+    color:'red',
   },
-  onLoad: function (options) {
-    // 生命周期函数--监听页面加载   
-    console.log('onLoad')
-    var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function (userInfo) {
-      //更新数据
+  onLoad() {
+    let that = this;
+    setTimeout(function() {
       that.setData({
-        userInfo: userInfo
+        loading: true
       })
+    }, 500)
+  },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
     })
   },
-  onShareAppMessage: function () {
-    // 用户点击右上角分享
-    return {
-      title: '', // 分享标题
-      desc: '', // 分享描述
-      path: '' // 分享路径
-    }
-  },
-  showMyWord: function () {
-    wx.showModal({
-      title: '提示',
-      content: '此功能暂未开放，敬请期待！',
-      showCancel: false,
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        }
-      }
+  hideModal(e) {
+    this.setData({
+      modalName: null
     })
   },
-  showClause: function () {
+  SetColor(e) {
+    this.setData({
+      color: e.currentTarget.dataset.color,
+      modalName: null
+    })
+  },
+  SetActive(e) {
+    this.setData({
+      active: e.detail.value
+    })
+  },
+  study:function(e){
+    console.log("11111")
     wx.navigateTo({
-      url: './trick/trick',
-      success: function (res) {
-        // success
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
-  },
-  showSaying: function () {
-    wx.navigateTo({
-      url: './saying/saying',
-      success: function (res) {
-        // success
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
-  },
-  showHelp: function () {
-    wx.navigateTo({
-      url: './recommend/recommend',
-      success: function (res) {
-        // success
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
+      url: '../word/word',
     })
   }
 })

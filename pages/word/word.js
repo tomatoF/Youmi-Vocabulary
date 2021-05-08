@@ -8,14 +8,15 @@ var batch = []
 Page({
     data: {
         // 需要查询是否为生词
+        finish:false,
         userId:'occfm1XR2rLSUu7nZKvyDnpVVk_s'
     },
     onLoad: function (options) {
         wx.request({
-          url: 'http://localhost:8080/word/next',
+          url: 'http://localhost:8080/word/nextBatch',
           data: {
             userId:1,
-            worId:1
+            worId:1,
           },
           method: 'GET',
           success: (res) => {
@@ -40,6 +41,14 @@ Page({
     },
 
     next: function () {
+        if(i>=4){
+            this.setData({
+                finish:true
+            })
+            wx.navigateTo({
+                url: '../finish/award.wxml',
+              })
+        }
         this.setData({
             showNot: false
         })

@@ -38,7 +38,7 @@ Page({
   },
   // 生词移出函数
   remove:function(e){
-    var index = parseInt(e.target.dataset.index)
+    let index = parseInt(e.target.dataset.index)
     wx.request({
       url: 'http://localhost:8080/word/removeNote',
       data:{
@@ -49,12 +49,9 @@ Page({
         console.log(res)
       }
     })
-    // this.data.array.splice(index,1)
-    this.load()
-    // this.setData({
-    //   array:this.data.array
-    // })
-    
+    this.setData({
+      ["array[index]".isDelete]:true
+    })
     
   },
   load:function(){

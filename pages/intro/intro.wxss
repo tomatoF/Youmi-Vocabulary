@@ -1,58 +1,59 @@
-.container {
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+.bg{
+  filter: blur(50rpx);
+}
+.progress-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  justify-content: space-between;
-  box-sizing: border-box;
+  flex-direction: column wrap;
+  flex-wrap: wrap;
+  margin-bottom: 30rpx;
+  padding: 1rpx;
 }
-
-.userinfo {
+.progress-text{
+  margin-left: auto;
+}
+.study-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column ;
 }
-
-.userinfo-avatar {
-  width: 168rpx;
-  height: 168rpx;
-  margin-top: 124rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  margin-top: 30rpx; 
-  color: #585858;
-  font-family: Songti SC;
-  font-size: 32rpx;
-}
-
-.list-item {
+.today-num{
   display: flex;
   flex-direction: row;
-  height: 88rpx;
+  align-items: baseline;
+}
+.today{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+.total-num{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.total{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+.study-analysis{
+  display: flex;
+  flex-direction: row;
+  margin: auto 10rpx 60rpx;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 1rpx solid #E5E5E5;
+  height: 40%;
 }
-
-.list-name {
-  margin-left: 32rpx;
-  line-height: 88rpx;
-  font-family: PingFang SC;
-  font-size: 34rpx;
-  color: #000;
-  
-}
-
-.list-icon {
-  margin-top: 30rpx;
-  margin-left: 538rpx;
-  width: 16rpx;
-  height: 26rpx;
-}
-
-.list-container {
-  margin-top: 98rpx;
+.start{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+}
+.start-btn{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
